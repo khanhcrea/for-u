@@ -1,9 +1,36 @@
 # for-u
-for y in range(12, -12, -1): 
-    for x in range(-30, 30): 
-        formula = ((x * 0.05) ** 2 + (y * 0.1) ** 2 - 1)
-        if formula ** 3 - (x * 0.05) ** 2 * (y * 0.1) ** 3 <= 0:
-            print("!", end="")
-        else:
-            print(" ", end="") 
-    print()
+    import turtle
+def draw_petal(t, size):
+    for _ in range(2):
+        t.circle(size, 60) 
+        t.left(120)
+def draw_flower():
+    screen = turtle.Screen()
+    screen.bgcolor("white")
+    screen.title("Flower Drawing")
+    flower = turtle.Turtle()
+    flower.shape("turtle")
+    flower.speed(0) 
+    flower.color("red", "yellow")
+    flower.begin_fill()
+    for _ in range(6): 
+        draw_petal(flower, 100)
+        flower.right(60) 
+    flower.end_fill()
+    flower.penup()
+    flower.goto(0, -40)
+    flower.pendown()
+    flower.color("orange")
+    flower.begin_fill()
+    flower.circle(40)
+    flower.end_fill()
+    flower.penup()
+    flower.goto(0, -40)
+    flower.setheading(270) 
+    flower.pendown()
+    flower.color("green")
+    flower.pensize(10)
+    flower.forward(200)
+    flower.hideturtle()
+    screen.mainloop()
+draw_flower()
